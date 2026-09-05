@@ -1,0 +1,202 @@
+/* =========================================
+   1. VARIABLES (COLORS & TYPOGRAPHY)
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --mocha-mousse: #A5956F; 
+    --ethereal-blue: #A0D4E0; 
+    --moonlit-grey: #F2F0EA; 
+    --dark-text: #2C2C2C;
+    --light-text: #FFFFFF;
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* =========================================
+   2. GLOBAL STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--moonlit-grey);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* =========================================
+   3. HEADER & NAVIGATION (GLASSMORPHISM)
+   ========================================= */
+header {
+    background-color: rgba(160, 212, 224, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--light-text);
+}
+
+main {
+    margin-top: 70px; /* Space for fixed header */
+}
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero {
+    text-align: center;
+    padding: 6rem 5% 4rem;
+    background-color: var(--mocha-mousse);
+    color: var(--light-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.hero p {
+    max-width: 600px;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-btn {
+    background-color: var(--dark-text);
+    color: var(--moonlit-grey);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--ethereal-blue);
+    color: var(--dark-text);
+    transform: scale(1.05);
+}
+
+/* =========================================
+   5. SERVICES & CSS GRID
+   ========================================= */
+.services-container {
+    padding: 4rem 5%;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.icon-wrapper {
+    font-size: 2.5rem;
+    color: var(--mocha-mousse);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.service-card {
+    background-color: #FFFFFF;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    border-top: 5px solid var(--mocha-mousse);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(165, 149, 111, 0.2);
+}
+
+/* Scroll Animation Initial State */
+.hidden-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    background-color: var(--dark-text);
+    color: var(--moonlit-grey);
+    text-align: center;
+    padding: 2rem 5%;
+}
+
+/* =========================================
+   6. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
